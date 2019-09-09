@@ -71,7 +71,14 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 50,
               height: 50,
               decoration: new BoxDecoration(
-                color: Colors.blue,
+                gradient: new RadialGradient(
+                  colors: [new Color.fromRGBO(255, 255, 0, 1), new Color.fromRGBO(188, 178, 52, 1)],
+                  stops: [0.3, 1],
+                ),
+                boxShadow: [
+                  new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
+                  new BoxShadow(color: new Color.fromRGBO(255, 255, 0, 1), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0)
+                ],
                 shape: BoxShape.circle,
               ),
             ),
@@ -82,7 +89,14 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 50,
               height: 50,
               decoration: new BoxDecoration(
-                color: Colors.orange,
+                gradient: new RadialGradient(
+                  colors: [new Color.fromRGBO(171, 255, 0, 1), new Color.fromRGBO(98, 171, 51, 1)],
+                  stops: [0.3, 1],
+                ),
+                boxShadow: [
+                  new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
+                  new BoxShadow(color: new Color.fromRGBO(137, 255, 0, 1), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0)
+                ],
                 shape: BoxShape.circle,
               ),
             ),
@@ -93,14 +107,13 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 50,
               height: 50,
               decoration: new BoxDecoration(
-                color: Colors.blue,
                 gradient: new RadialGradient(
-                    colors: [new Color.fromRGBO(255, 0, 0, 1), new Color.fromRGBO(166, 16, 24, 1)],
+                    colors: [new Color.fromRGBO(255, 0, 0, 1), new Color.fromRGBO(168, 19, 19, 1)], // new Color.fromRGBO(166, 16, 24, 1)],
                     stops: [0.3, 1],
                 ),
                 boxShadow: [
                   new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
-                  new BoxShadow(color: new Color.fromRGBO(255, 0, 0, 0.5), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0)
+                  new BoxShadow(color: new Color.fromRGBO(255, 0, 0, 1), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0)
                 ],
                 shape: BoxShape.circle,
               ),
@@ -112,7 +125,14 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 50,
               height: 50,
               decoration: new BoxDecoration(
-                color: Colors.lime,
+                gradient: new RadialGradient(
+                  colors: [new Color.fromRGBO(36, 224, 255, 1), new Color.fromRGBO(27, 116, 177, 1)],
+                  stops: [0.3, 1],
+                ),
+                boxShadow: [
+                  new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
+                  new BoxShadow(color: new Color.fromRGBO(63, 140, 255, 1), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0)
+                ],
                 shape: BoxShape.circle,
               ),
             ),
