@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './led.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,9 +44,21 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+
+  AnimationController _controller;
+  Animation<int> animation;
 
   void _doNothing() {
+  }
+
+  @override
+  initState() {
+    super.initState();
+    _controller =
+        AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
+    animation = IntTween(begin: 170, end: 255).animate(_controller);
+    _controller.repeat(reverse: true);
   }
 
   @override
@@ -66,6 +79,10 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         children: <Widget>[
+          ListTile(
+            leading: new Led(animation: animation),
+            title: Text('https://freecodecamp.org'),
+          ),
           ListTile(
             leading: new Container(
               width: 50,
@@ -146,5 +163,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
