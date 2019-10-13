@@ -12,7 +12,7 @@ class Led extends AnimatedWidget {
       height: 50,
       decoration: new BoxDecoration(
         gradient: new RadialGradient(
-          colors: [new Color.fromRGBO(animation.value, 0, 0, 1), new Color.fromRGBO(168, 19, 19, 1)], // new Color.fromRGBO(166, 16, 24, 1)],
+          colors: [new Color.fromRGBO(animation.value, 0, 0, 1), new Color.fromRGBO(168, 0, 0, 1)], // new Color.fromRGBO(166, 16, 24, 1)],
           stops: [0.3, 1],
         ),
         boxShadow: [
@@ -23,5 +23,19 @@ class Led extends AnimatedWidget {
       ),
     );
   }
+}
 
+class AnimatedLed extends AnimatedWidget {
+  AnimatedLed({Key key, Animation<Decoration> animation})
+      : super(key: key, listenable: animation);
+
+  @override
+  Widget build(BuildContext context) {
+    Animation<Decoration> animation = listenable;
+    return new Container(
+      width: 50,
+      height: 50,
+      decoration: animation.value
+    );
+  }
 }

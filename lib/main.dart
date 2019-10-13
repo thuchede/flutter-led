@@ -48,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
 
   AnimationController _controller;
   Animation<int> animation;
+  Animation<Decoration> decoration;
 
   void _doNothing() {
   }
@@ -58,6 +59,34 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     _controller =
         AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
     animation = IntTween(begin: 170, end: 255).animate(_controller);
+
+    decoration = DecorationTween(
+      begin: BoxDecoration(
+        gradient: new RadialGradient(
+          colors: [new Color.fromRGBO(170, 0, 0, 1), new Color.fromRGBO(114, 12, 17, 1)],//new Color.fromRGBO(168, 0, 0, 1)],
+          stops: [0.3, 1],
+          center: const Alignment(0.0, -0.05)
+        ),
+        boxShadow: [
+          new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
+          new BoxShadow(color: new Color.fromRGBO(255, 0, 0, 0.5), offset: new Offset(0.0, 0.0), blurRadius: 0.0, spreadRadius: 0.0),
+        ],
+        shape: BoxShape.circle,
+      ),
+      end: BoxDecoration(
+        gradient: new RadialGradient(
+          colors: [new Color.fromRGBO(255, 0, 0, 1), new Color.fromRGBO(114, 12, 17, 1)],//new Color.fromRGBO(168, 0, 0, 1)],
+          stops: [0.3, 1],
+          center: const Alignment(0.05, -0.05)
+        ),
+        boxShadow: [
+          new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
+          new BoxShadow(color: new Color.fromRGBO(255, 0, 0, 0.5), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0),
+        ],
+        shape: BoxShape.circle,
+      ),
+    ).animate(_controller);
+
     _controller.repeat(reverse: true);
   }
 
@@ -82,6 +111,10 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           ListTile(
             leading: new Led(animation: animation),
             title: Text('https://freecodecamp.org'),
+          ),
+          ListTile(
+            leading: new AnimatedLed(animation: decoration),
+            title: Text('https://stackoverflow.com'),
           ),
           ListTile(
             leading: new Container(
