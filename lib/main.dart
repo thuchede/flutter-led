@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import './led.dart';
+import 'led.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,45 +45,66 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
-
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<Decoration> decoration;
   Animation<Decoration> greenDecoration;
   Animation<Decoration> yellowDecoration;
+  Animation<Decoration> whiteDecoration;
   Animation<Decoration> blueDecoration;
 
-  void _doNothing() {
-  }
+  void _doNothing() {}
 
   @override
   initState() {
     super.initState();
-    _controller =
-        AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
+    _controller = AnimationController(
+        duration: const Duration(milliseconds: 500), vsync: this);
 
     decoration = DecorationTween(
       begin: BoxDecoration(
-        gradient: new RadialGradient(
-          colors: [new Color.fromRGBO(170, 0, 0, 1), new Color.fromRGBO(114, 12, 17, 1)],//new Color.fromRGBO(168, 0, 0, 1)],
-          stops: [0.3, 1],
-          center: const Alignment(0.0, -0.05)
-        ),
+        gradient: new RadialGradient(colors: [
+          new Color.fromRGBO(170, 0, 0, 1),
+          new Color.fromRGBO(114, 12, 17, 1)
+        ], //new Color.fromRGBO(168, 0, 0, 1)],
+            stops: [
+              0.3,
+              1
+            ], center: const Alignment(0.0, -0.05)),
         boxShadow: [
-          new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
-          new BoxShadow(color: new Color.fromRGBO(255, 0, 0, 0.5), offset: new Offset(0.0, 0.0), blurRadius: 0.0, spreadRadius: 0.0),
+          new BoxShadow(
+              color: new Color.fromRGBO(0, 0, 0, 0.2),
+              offset: new Offset(0.0, -1.0),
+              blurRadius: 7.0,
+              spreadRadius: 1.0),
+          new BoxShadow(
+              color: new Color.fromRGBO(255, 0, 0, 0.5),
+              offset: new Offset(0.0, 0.0),
+              blurRadius: 0.0,
+              spreadRadius: 0.0),
         ],
         shape: BoxShape.circle,
       ),
       end: BoxDecoration(
-        gradient: new RadialGradient(
-          colors: [new Color.fromRGBO(255, 0, 0, 1), new Color.fromRGBO(168, 0, 0, 1)],
-          stops: [0.3, 1],
-          center: const Alignment(0.05, -0.05)
-        ),
+        gradient: new RadialGradient(colors: [
+          new Color.fromRGBO(255, 0, 0, 1),
+          new Color.fromRGBO(168, 0, 0, 1)
+        ], stops: [
+          0.3,
+          1
+        ], center: const Alignment(0.05, -0.05)),
         boxShadow: [
-          new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
-          new BoxShadow(color: new Color.fromRGBO(255, 0, 0, 0.5), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0),
+          new BoxShadow(
+              color: new Color.fromRGBO(0, 0, 0, 0.2),
+              offset: new Offset(0.0, -1.0),
+              blurRadius: 7.0,
+              spreadRadius: 1.0),
+          new BoxShadow(
+              color: new Color.fromRGBO(255, 0, 0, 0.5),
+              offset: new Offset(0.0, 2.0),
+              blurRadius: 12.0,
+              spreadRadius: 0.0),
         ],
         shape: BoxShape.circle,
       ),
@@ -91,55 +112,96 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
 
     greenDecoration = DecorationTween(
       begin: BoxDecoration(
-        gradient: new RadialGradient(
-            colors: [new Color.fromRGBO(121, 205, 0, 1), new Color.fromRGBO(48, 121, 1, 1)],
-            stops: [0.3, 1],
-            center: const Alignment(0.0, -0.05)
-        ),
+        gradient: new RadialGradient(colors: [
+          new Color.fromRGBO(121, 205, 0, 1),
+          new Color.fromRGBO(48, 121, 1, 1)
+        ], stops: [
+          0.3,
+          1
+        ], center: const Alignment(0.0, -0.05)),
         boxShadow: [
-          new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
-          new BoxShadow(color: new Color.fromRGBO(137, 255, 0, 0.5), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0)
+          new BoxShadow(
+              color: new Color.fromRGBO(0, 0, 0, 0.2),
+              offset: new Offset(0.0, -1.0),
+              blurRadius: 7.0,
+              spreadRadius: 1.0),
+          new BoxShadow(
+              color: new Color.fromRGBO(137, 255, 0, 0.5),
+              offset: new Offset(0.0, 2.0),
+              blurRadius: 12.0,
+              spreadRadius: 0.0)
         ],
         shape: BoxShape.circle,
       ),
       end: BoxDecoration(
-        gradient: new RadialGradient(
-            colors: [new Color.fromRGBO(171, 255, 0, 1), new Color.fromRGBO(98, 171, 51, 1)],
-            stops: [0.3, 1],
-            center: const Alignment(0.05, -0.05)
-        ),
+        gradient: new RadialGradient(colors: [
+          new Color.fromRGBO(171, 255, 0, 1),
+          new Color.fromRGBO(98, 171, 51, 1)
+        ], stops: [
+          0.3,
+          1
+        ], center: const Alignment(0.05, -0.05)),
         boxShadow: [
-          new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
-          new BoxShadow(color: new Color.fromRGBO(137, 255, 0, 0.5), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0)
+          new BoxShadow(
+              color: new Color.fromRGBO(0, 0, 0, 0.2),
+              offset: new Offset(0.0, -1.0),
+              blurRadius: 7.0,
+              spreadRadius: 1.0),
+          new BoxShadow(
+              color: new Color.fromRGBO(137, 255, 0, 0.5),
+              offset: new Offset(0.0, 2.0),
+              blurRadius: 12.0,
+              spreadRadius: 0.0)
         ],
         shape: BoxShape.circle,
       ),
     ).animate(_controller);
 
     yellowDecoration = buildDecorationTween(255, 255, 0).animate(_controller);
+    whiteDecoration = buildDecorationTween(255, 255, 255).animate(_controller);
 
     blueDecoration = DecorationTween(
       begin: new BoxDecoration(
-        gradient: new RadialGradient(
-            colors: [new Color.fromRGBO(36, 174, 205, 1), new Color.fromRGBO(27, 116, 177, 1)],
-            stops: [0.3, 1],
-            center: const Alignment(0.05, -0.05)
-        ),
+        gradient: new RadialGradient(colors: [
+          new Color.fromRGBO(36, 174, 205, 1),
+          new Color.fromRGBO(27, 116, 177, 1)
+        ], stops: [
+          0.3,
+          1
+        ], center: const Alignment(0.05, -0.05)),
         boxShadow: [
-          new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
-          new BoxShadow(color: new Color.fromRGBO(63, 140, 255, 0.5), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0)
+          new BoxShadow(
+              color: new Color.fromRGBO(0, 0, 0, 0.2),
+              offset: new Offset(0.0, -1.0),
+              blurRadius: 7.0,
+              spreadRadius: 1.0),
+          new BoxShadow(
+              color: new Color.fromRGBO(63, 140, 255, 0.5),
+              offset: new Offset(0.0, 2.0),
+              blurRadius: 12.0,
+              spreadRadius: 0.0)
         ],
         shape: BoxShape.circle,
       ),
       end: new BoxDecoration(
-        gradient: new RadialGradient(
-          colors: [new Color.fromRGBO(36, 224, 255, 1), new Color.fromRGBO(37, 136, 197, 1)],
-          stops: [0.3, 1],
-          center: const Alignment(0.05, -0.05)
-        ),
+        gradient: new RadialGradient(colors: [
+          new Color.fromRGBO(36, 224, 255, 1),
+          new Color.fromRGBO(37, 136, 197, 1)
+        ], stops: [
+          0.3,
+          1
+        ], center: const Alignment(0.05, -0.05)),
         boxShadow: [
-          new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
-          new BoxShadow(color: new Color.fromRGBO(63, 140, 255, 0.5), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0)
+          new BoxShadow(
+              color: new Color.fromRGBO(0, 0, 0, 0.2),
+              offset: new Offset(0.0, -1.0),
+              blurRadius: 7.0,
+              spreadRadius: 1.0),
+          new BoxShadow(
+              color: new Color.fromRGBO(63, 140, 255, 0.5),
+              offset: new Offset(0.0, 2.0),
+              blurRadius: 12.0,
+              spreadRadius: 0.0)
         ],
         shape: BoxShape.circle,
       ),
@@ -195,6 +257,10 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             title: Text('animated yellow'),
           ),
           ListTile(
+            leading: new AnimatedLed(animation: whiteDecoration),
+            title: Text('animated white'),
+          ),
+          ListTile(
             leading: new AnimatedLed(animation: blueDecoration),
             title: Text('animated blue'),
           ),
@@ -228,26 +294,46 @@ DecorationTween buildDecorationTween(red, green, blue) {
 
   return DecorationTween(
     begin: BoxDecoration(
-      gradient: new RadialGradient(
-          colors: [new Color.fromRGBO(lightRed, lightGreen, lightBlue, 1), new Color.fromRGBO(darkRed, darkGreen, darkBlue, 1)],
-          stops: [0.3, 1],
-          center: const Alignment(0.0, -0.05)
-      ),
+      gradient: new RadialGradient(colors: [
+        new Color.fromRGBO(lightRed, lightGreen, lightBlue, 1),
+        new Color.fromRGBO(darkRed, darkGreen, darkBlue, 1)
+      ], stops: [
+        0.3,
+        1
+      ], center: const Alignment(0.0, -0.05)),
       boxShadow: [
-        new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
-        new BoxShadow(color: new Color.fromRGBO(red, green, blue, 0.5), offset: new Offset(0.0, 0.0), blurRadius: 0.0, spreadRadius: 0.0),
+        new BoxShadow(
+            color: new Color.fromRGBO(0, 0, 0, 0.2),
+            offset: new Offset(0.0, -1.0),
+            blurRadius: 7.0,
+            spreadRadius: 1.0),
+        new BoxShadow(
+            color: new Color.fromRGBO(red, green, blue, 0.5),
+            offset: new Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0),
       ],
       shape: BoxShape.circle,
     ),
     end: BoxDecoration(
-      gradient: new RadialGradient(
-          colors: [new Color.fromRGBO(red, green, blue, 1), new Color.fromRGBO(darkerRed, darkerGreen, darkerBlue, 1)],
-          stops: [0.3, 1],
-          center: const Alignment(0.05, -0.05)
-      ),
+      gradient: new RadialGradient(colors: [
+        new Color.fromRGBO(red, green, blue, 1),
+        new Color.fromRGBO(darkerRed, darkerGreen, darkerBlue, 1)
+      ], stops: [
+        0.3,
+        1
+      ], center: const Alignment(0.05, -0.05)),
       boxShadow: [
-        new BoxShadow(color: new Color.fromRGBO(0, 0, 0, 0.2), offset: new Offset(0.0, -1.0), blurRadius: 7.0, spreadRadius: 1.0),
-        new BoxShadow(color: new Color.fromRGBO(red, green, blue, 0.5), offset: new Offset(0.0, 2.0), blurRadius: 12.0, spreadRadius: 0.0),
+        new BoxShadow(
+            color: new Color.fromRGBO(0, 0, 0, 0.2),
+            offset: new Offset(0.0, -1.0),
+            blurRadius: 7.0,
+            spreadRadius: 1.0),
+        new BoxShadow(
+            color: new Color.fromRGBO(red, green, blue, 0.5),
+            offset: new Offset(0.0, 2.0),
+            blurRadius: 12.0,
+            spreadRadius: 0.0),
       ],
       shape: BoxShape.circle,
     ),
